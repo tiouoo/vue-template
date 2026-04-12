@@ -1,11 +1,11 @@
 <template>
   <div class="page-nav-container">
-    <h1 class="title">libraries.yik.at</h1>
+    <h1 class="title">tio.ooo</h1>
 
     <div class="search-box">
       <a-input
         v-model:value="searchKeyword"
-        placeholder="搜索开源软件包、框架和工具......"
+        placeholder="搜索..."
         size="large"
         @pressEnter="handleSearch">
         <template #prefix>
@@ -17,12 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 import { SearchOutlined } from '@ant-design/icons-vue';
 import { ref } from 'vue';
 import { message } from 'ant-design-vue';
 
-const router = useRouter();
 const searchKeyword = ref('');
 
 function handleSearch() {
@@ -33,13 +31,6 @@ function handleSearch() {
     return;
   }
 
-  router.push({
-    name: 'search-with-source',
-    params: {
-      source: 'all',
-      keyword: keyword,
-    },
-  });
 }
 </script>
 
